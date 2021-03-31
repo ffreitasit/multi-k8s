@@ -1,0 +1,20 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: test-ensaiofacil-com-br-tls
+spec:
+  secretName: test-ensaiofacil-com-br-tls
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: test.ensaiofacil.com.br
+  dnsNames:
+    - test.ensaiofacil.com.br
+    - www.test.ensaiofacil.com.br
+  acme:
+    config:
+      - http01:
+          ingressClass: nginx
+        domains:
+          - test.ensaiofacil.com.br
+          - www.test.ensaiofacil.com.br
